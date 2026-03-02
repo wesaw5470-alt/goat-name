@@ -1,1 +1,178 @@
-# goat-name
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Эчки</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#fff8f0;
+}
+
+header{
+  background:#2e8b57;
+  color:white;
+  text-align:center;
+  padding:15px;
+  font-size:24px;
+}
+
+.slider{
+  position:relative;
+  width:100%;
+  height:400px;
+  overflow:hidden;
+}
+
+.slide{
+  display:none;
+  position:relative;
+}
+
+.slide img{
+  width:100%;
+  height:400px;
+  object-fit:cover;
+}
+
+.text{
+  position:absolute;
+  bottom:20px;
+  left:15px;
+  right:15px;
+  background:rgba(0,0,0,0.65);
+  color:white;
+  padding:15px;
+  border-radius:8px;
+  max-height:80%;
+  overflow-y:auto;
+}
+
+.prev, .next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.6);
+  color:white;
+  border:none;
+  font-size:24px;
+  padding:10px;
+  cursor:pointer;
+}
+
+.prev{ left:10px; }
+.next{ right:10px; }
+
+.content{
+  padding:15px;
+}
+
+.card{
+  background:white;
+  padding:15px;
+  margin-bottom:15px;
+  border-radius:8px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+footer{
+  background:#2e8b57;
+  color:white;
+  text-align:center;
+  padding:10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>🐐 Всё о козах</header>
+
+<div class="slider">
+
+  <!-- 1-slayd: kirish, faqat rasm -->
+  <div class="slide">
+    <img src="kirish.jpg">
+  </div>
+
+  <!-- 2-slayd -->
+  <div class="slide">
+    <img src="rasm1.jpg">
+    <div class="text">
+      <h3>Эчки и молоко</h3>
+      <p>Козы дают полезное молоко, богатое витаминами A, B, C и D. Оно укрепляет иммунитет, улучшает пищеварение и легко усваивается организмом.</p>
+    </div>
+  </div>
+
+  <!-- 3-slayd -->
+  <div class="slide">
+    <img src="rasm2.jpg">
+    <div class="text">
+      <h3>Интересные факты</h3>
+      <p>Козы умные животные, могут узнавать хозяина, лазать по склонам и иногда по деревьям. Существует более 300 пород коз с разными особенностями.</p>
+    </div>
+  </div>
+
+  <!-- 4-slayd -->
+  <div class="slide">
+    <img src="rasm3.jpg">
+    <div class="text">
+      <h3>Использование шерсти</h3>
+      <p>Шерсть коз используется для изготовления теплой одежды, одеял и ковров. Мясо коз диетическое и богато белком.</p>
+    </div>
+  </div>
+
+  <!-- 5-slayd -->
+  <div class="slide">
+    <img src="rasm4.jpg">
+    <div class="text">
+      <h3>Содержание коз</h3>
+      <p>Козы неприхотливы, легко приспосабливаются к разным климатическим условиям и помогают поддерживать экологический баланс на ферме.</p>
+    </div>
+  </div>
+
+  <!-- 6-slayd -->
+  <div class="slide">
+    <img src="rasm5.jpg">
+    <div class="text">
+      <h3>Польза для человека</h3>
+      <p>Козы помогают человеку получать пищу, одежду и шерсть. Они важны для хозяйства и фермерских навыков.</p>
+    </div>
+  </div>
+
+  <!-- 7-slayd: oxiri, faqat rasm -->
+  <div class="slide">
+    <img src="oxiri.jpg">
+  </div>
+
+  <button class="prev" onclick="changeSlide(-1)">❮</button>
+  <button class="next" onclick="changeSlide(1)">❯</button>
+
+</div>
+
+<script>
+let index = 0;
+showSlide(index);
+
+function showSlide(n){
+  let slides = document.getElementsByClassName("slide");
+  if(n >= slides.length){ index = 0; }
+  if(n < 0){ index = slides.length - 1; }
+
+  for(let i=0;i<slides.length;i++){
+    slides[i].style.display = "none";
+  }
+  slides[index].style.display = "block";
+}
+
+function changeSlide(n){
+  index += n;
+  showSlide(index);
+}
+</script>
+
+</body>
+</html>
